@@ -1,0 +1,7 @@
+openai
+python-dotenv
+deeplake
+langchain
+spotipy
+lyricsgenius
+streamlit
