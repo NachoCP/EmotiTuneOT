@@ -1,0 +1,11 @@
+"""
+Think that you are an expert in translating emotions from songs lyrics and names.
+The songs are going to be on spanish and english but the emotions should be only in English.
+Giving the following song {name} and its lyrics:
+
+{lyrics}
+
+Please provide eight emotions that can describe the song separated by a comma, all lower and without any other special character.
+These emotions has been already used for some songs, please avoid to do derivative terms from them such as "betrayal or betrayed"
+{emotions_used}
+"""

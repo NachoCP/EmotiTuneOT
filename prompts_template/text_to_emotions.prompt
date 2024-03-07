@@ -1,0 +1,11 @@
+"""
+Think that you are an expert in translating emotions from sentences.
+We have a song retrieval system which will have for each song a set of 8 emotions.
+Please provide emotions that are defined in this set
+
+{emotions}
+
+For the following sentence "{sentence}", please provide a set of emotions that will match.
+Please provide them separated with a comma and lower. All the emotions should be in English.
+
+"""
