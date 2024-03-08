@@ -8,20 +8,22 @@ load_dotenv()
 
 
 def llm_sentence_emotion() -> LLMChain:
+    print(Path("prompts_template/text_to_emotions.prompt").read_text())
     prompt = PromptTemplate(
-        input_variable=["sentence", "emotions"],
-        template=Path("promppts_template/text_to_emotions.prompt".read_text())
+        input_variables=["sentence"],
+        template=Path("prompts_template/text_to_emotions.prompt").read_text(),
     )
-    llm = ChatOpenAI(temperate=0.7)
+
+    llm = ChatOpenAI(temperature=0.7)
     chain = LLMChain(llm=llm, prompt=prompt)
     return chain
 
 
 def llm_lyrics_emotion() -> LLMChain:
     prompt = PromptTemplate(
-        input_variable=["name", "lyrics", "emotions_used"],
-        template=Path("promppts_template/lyrics_to_emotions.prompt".read_text())
-    )
-    llm = ChatOpenAI(temperate=0.7)
+        input_variables=["name", "lyrics", "emotions_used"],
+        template=Path("prompts_template/lyrics_to_emotions.prompt").read_text())
+
+    llm = ChatOpenAI(temperature=0.7)
     chain = LLMChain(llm=llm, prompt=prompt)
     return chain

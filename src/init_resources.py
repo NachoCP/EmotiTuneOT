@@ -15,6 +15,7 @@ def init_resources():
     dataset_path = f"hub://{os.environ['ACTIVELOOP_ORG_ID']}/{DATASET_NAME}"
     chain = llm_sentence_emotion()
     db = load_db(dataset_path=dataset_path,
-                 embedding=embeddings)
+                 embedding_function=embeddings,
+                 read_only=True)
 
     return db, chain
