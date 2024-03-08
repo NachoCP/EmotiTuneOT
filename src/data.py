@@ -5,6 +5,8 @@ import os
 import re
 import time
 from dotenv import load_dotenv
+from src.constants import TRACKS_JSON_PATH
+import json
 
 load_dotenv()
 # List containing the Operación Triunfo songs
@@ -44,4 +46,5 @@ def get_data():
                       "release_date": item["track"]["album"]["release_date"],
                       "lyrics": lyrics_text}
             records.append(record)
-    return records
+    with open(TRACKS_JSON_PATH, "w") as f:
+        json.dump(records, f)

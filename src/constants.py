@@ -1,21 +1,4 @@
 EMBEDDING_MODEL="text-embedding-ada-002"
 DATASET_NAME="ot_tracks_emotions_simplified"
-
-
-emoticons = [
-    "😊",  # Happy
-    "😢",  # Sad
-    "😠",  # Angry
-    "😲",  # Surprised
-    "😱",  # Scared
-    "😂",  # Laughing
-    "❤️",  # Love
-    "🤩",  # Excited
-    "🤔",  # Thoughtful
-    "😴",  # Tired
-    "😭",  # Crying
-    "😉",  # Winking
-    "😎",  # Cool
-    "😟",  # Worried
-    "😕",  # Confused
-]
+TRACKS_JSON_PATH="data/ot-tracks.json"
+TRACKS_EMOTIONS_JSON_PATH="data/ot-tracks-emotions-simplified.json"
