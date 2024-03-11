@@ -4,7 +4,7 @@ and other Spanish music reality shows. By analyzing your emotions, this system s
 providing an immersive music experience. 🎵🎉
 Operación Triunfo is a Spanish TV Show focused on music.
 
-This app has been focused on the following article [Recommendation Engine for Songs])(https://www.activeloop.ai/resources/3-ways-to-build-a-recommendation-engine-for-songs-with-lang-chain/).
+This app has been focused on the following article [Recommendation Engine for Songs](https://www.activeloop.ai/resources/3-ways-to-build-a-recommendation-engine-for-songs-with-lang-chain/).
 
 Made with [DeepLake](https://www.deeplake.ai/) 🚀 and [LangChain](https://python.langchain.com/en/latest/index.html) 🦜⛓
 
@@ -43,4 +43,10 @@ OPENAI_API_KEY=<OPENAI_API_KEY>
 # Active Loop Token
 ACTIVELOOP_TOKEN=<ACTIVELOOP_TOKEN>
 ACTIVELOOP_ORG_ID="NachoCP"
+```
+
+To init the application run
+
+```
+streamlit run app.py
 ```
