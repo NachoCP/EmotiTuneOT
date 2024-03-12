@@ -1,6 +1,6 @@
 # Exploring Machine Learning for Personalized Music Recommendations
 
-Hello fellow machine learning enthusiasts! 
+Hello, fellow machine learning enthusiasts! 
 
 After several years of working as a Data Engineer, I've embarked on a new journey to delve into the diverse
 realms of machine learning. This article marks the beginning of my exploration through various projects aimed at learning
@@ -12,7 +12,7 @@ eager to expand my knowledge and skills. Let's embark on this journey together!
 
 In the past few weeks, I enrolled in a course by [ActiveLoop](https://learn.activeloop.ai/courses/langchain) (Thank Diego for 
 the recommendation) to gain insights into Large Langauge Models (LLMs) and understand this burgeoning field better.
-In essence, Large Language Models is an advanced artificial intelligence system designed to understand and generate 
+In essence, a Large Language Model is an advanced artificial intelligence system designed to understand and generate 
 human-like text.
 
 After completing the course, I delved into a specific lesson on constructing a 
@@ -26,7 +26,7 @@ by employing LLM capabilities rather than directly querying embedded documents, 
 
 Let's break down the whole process of creating [EmotiTuneOT](https://github.com/NachoCP/EmotiTuneOT) (maybe not the best name 😅)
 a web application to recommend songs based on user input emotions. Our objective is straightforward: to understand
-the user's mood and provide a song recommendation that resonate with that emotion.
+the user's mood and provide a song recommendation that resonates with that emotion.
 
 Let's get this show on the road!
 
@@ -35,7 +35,7 @@ Let's get this show on the road!
 This year, my wife and I have been avidly following a Spanish music reality show, "Operación Triunfo". 
 I made the decision to utilize their lyrics as the dataset for our project, opting for a more culturally relevant 
 source compared to the Disney lyrics initially considered. I have used the following list from Spotify `https://open.spotify.com/playlist/37i9dQZF1DWZYJ3pS3pteL?si=4481b20beab24def`,
-which contains all the songs related to this year edition.
+which contains all the songs related to this year's edition.
 
 I utilized two primary libraries to scrape all the songs from the playlist:
 
@@ -57,7 +57,7 @@ The results are the following **[json](https://github.com/NachoCP/EmotiTuneOT/bl
 ```
 
 Once all the music data was downloaded, the next step was to create the dataset for retrieving our song. Embedding,
-in the context of natural language processing, refers to represent words or text in a continuous vector space, and it will enable similarity
+in the context of natural language processing, refers to representing words or text in a continuous vector space, and it will enable similarity
 search for our system. By utilizing the LangChain implementation of DeepLake, this task became straightforward and intuitive. 
 Simply by providing the text and the embedding model, the dataset could be generated in a matter of minutes. 
 
@@ -77,7 +77,7 @@ system tailored to our needs.
 ### Similarity search over the lyrics
 
 This approach followed a straightforward path: generating embedding for both the song lyrics and user input using GPT-3.
-However, despite its simplicity, the results obtained were very pour and it didn't fit properly.
+However, despite its simplicity, the results obtained were very poor and it didn't fit properly.
 
 ```python
 results = db.similarity_search_with_score("I am very sad", distance_metric="cos", k=100)
@@ -111,15 +111,15 @@ help pinpoint areas for improvement in our recommendation algorithm.
 
 Given the inherent ambiguity of conducting a similarity search against all the lyrics, 
 reducing the search space is likely to yield improved results. One strategy involves transforming each set of lyrics 
-into a list of 8 emotions using ChatGPT, then performing similarity comparisons against these emotion representations. 
+into a list of 8 emotions using ChatGPT, and then performing similarity comparisons against these emotion representations. 
 This approach aims to provide more focused and relevant song recommendations tailored to the user's emotional context. 
 
 The prompt for ChatGPT to generate the emotion representation is as follows:
 
 ```
 """
-Think that you are an expert in translating emotions from songs lyrics and names.
-The songs are going to be on spanish and english but the emotions should be only in English.
+Think that you are an expert in translating emotions from song lyrics and names.
+The songs are going to be in Spanish and English but the emotions should be only in English.
 Giving the following song {name} and its lyrics:
 
 {lyrics}
@@ -129,10 +129,10 @@ Please provide eight emotions that can describe the song separated by a comma, a
 ```
 
 The song **I Love Rock'N'Roll"**, iconic from the 80s get the following set of emotions 
-**"excitement, enthusiastic, joy, energy, rebellion, passion, empowerment, nostalgia"**.
+**"excitement, enthusiasm, joy, energy, rebellion, passion, empowerment, nostalgia"**.
 
-Now, we have to convert user's sentence to a set of emotions that could cover the representation. We used another custom
-prompt for perfomring this action:
+Now, we have to convert the user's sentence to a set of emotions that could cover the representation. We used another custom
+prompt for performing this action:
 ```
 """
 Think that you are an expert in translating emotions from sentences.
@@ -142,7 +142,7 @@ For the following sentence
 
  {sentence}
 
-Please provide the emotions/feeling or impressions that is giving you this sentence.
+Please provide the emotions/feelings or impressions that are giving you this sentence.
 You don't need to fulfill the list of 8 emotions if you don't consider it.
 Please provide them separated with a comma and lower. All the emotions should be in English.
 """
@@ -166,7 +166,7 @@ Tómame O Déjame: 0.8730125427246094
 
 The provided data indicates that the similarity scores for the songs now range around 0.83. 
 This improvement suggests that our refinement of the recommendation algorithm has led to 
-better-aligned results with our desired criteria.
+better aligned results with our desired criteria.
 
 ![box-plot-2](images/box-plot-2.png)
 
@@ -182,14 +182,14 @@ thereby avoiding the addition of any modified terms and ensuring consistency wit
 This was the prompt used:
 ```
 """
-Think that you are an expert in translating emotions from songs lyrics and names.
-The songs are going to be on spanish and english but the emotions should be only in English.
+Think that you are an expert in translating emotions from song lyrics and names.
+The songs are going to be in Spanish and English but the emotions should be only in English.
 Giving the following song {name} and its lyrics:
 
 {lyrics}
 
 Please provide eight emotions that can describe the song separated by a comma, all lower and without any other special character.
-These emotions has been already used for some songs, please avoid to do derivative terms from them such as "betrayal or betrayed"
+These emotions have been already used for some songs, please avoid using derivative terms from them such as "betrayal or betrayed"
 {emotions_used}
 """
 ```
@@ -237,4 +237,4 @@ we can continue to push the boundaries of what's possible, creating more intelli
 for the future.
 
 
-Looking forward to start the new project!
+Looking forward to starting the new project!
